@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.489">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -76,7 +76,6 @@ div.csl-indent {
 <meta name="citation_year" content="2025">
 <meta name="citation_online_date" content="2025-07-17">
 <meta name="citation_language" content="pt">
-<meta name="citation_firstpage" content="undefined">
 <meta name="citation_journal_title" content="Earth and Space Science">
 <meta name="citation_reference" content="citation_title=Earthdata search;,citation_author=NASA Earthdata;,citation_publication_date=2024;,citation_cover_date=2024;,citation_year=2024;,citation_fulltext_html_url=https://search.earthdata.nasa.gov;">
 <meta name="citation_reference" content="citation_title=MODIS land surface temperature products;,citation_author=Zhengming Wan;,citation_author=Jeff Dozier;,citation_publication_date=2002;,citation_cover_date=2002;,citation_year=2002;,citation_issue=1-2;,citation_volume=83;,citation_journal_title=Remote Sensing of Environment;,citation_publisher=Elsevier;">
@@ -176,12 +175,12 @@ div.csl-indent {
 <p>Mais do que um pretexto pessoal, este trabalho busca ilustrar o potencial da geoestatística na compreensão de padrões espaciais de variáveis ambientais, mesmo (ou especialmente) em datas de valor afetivo.</p>
 <div id="cell-fig-mapa-ride" class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-mapa-ride" class="quarto-figure quarto-figure-center anchored" width="1200" data-fig-align="center">
+<div id="fig-mapa-ride" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mapa-ride-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="ride.png" class="lightbox" data-description="Figura&nbsp;1: Municípios que compõem a RIDE (Região Integrada de Desenvolvimento do DF e Entorno)." data-gallery="quarto-lightbox-gallery-1"><img src="ride.png" class="img-fluid quarto-figure-center figure-img" width="1200"></a>
+<a href="ride.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="ride.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1200"></a>
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-mapa-ride-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mapa-ride-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;1: Municípios que compõem a RIDE (Região Integrada de Desenvolvimento do DF e Entorno).
 </figcaption>
 </figure>
@@ -197,12 +196,12 @@ Figura&nbsp;1: Municípios que compõem a RIDE (Região Integrada de Desenvolvim
 <p>No total, foram utilizados 181 medições . As coordenadas dos pontos de temperatura foram obtidas tanto em formato geográfico (latitude e longitude) quanto em sistema projetado UTM (Universal Transverse Mercator, zona 23S, SIRGAS 2000), sendo este último utilizado nas análises geoestatísticas por ser mais adequado ao cálculo de distâncias em metros.</p>
 <div id="cell-fig-pontos-amostrados" class="cell">
 <div class="cell-output-display">
-<div id="fig-pontos-amostrados" class="quarto-figure quarto-figure-center anchored" width="1200">
+<div id="fig-pontos-amostrados" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pontos-amostrados-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="ride_temp_points.png" class="lightbox" data-description="Figura&nbsp;2: Pontos amostrados de temperatura da superfície terrestre (°C) na RIDE-DF." data-gallery="quarto-lightbox-gallery-2"><img src="ride_temp_points.png" class="img-fluid figure-img" width="1200"></a>
+<a href="ride_temp_points.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="ride_temp_points.png" class="img-fluid figure-img" width="1200"></a>
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-pontos-amostrados-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pontos-amostrados-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;2: Pontos amostrados de temperatura da superfície terrestre (°C) na RIDE-DF.
 </figcaption>
 </figure>
@@ -219,12 +218,12 @@ Figura&nbsp;2: Pontos amostrados de temperatura da superfície terrestre (°C) n
 <p>Com o modelo exponencial ajustado, foi realizada a krigagem ordinária sobre uma grade regular de pontos com espaçamento de 1 km dentro da área da RIDE. O resultado foi a geração de uma superfície contínua de temperatura estimada, representando a variação espacial da LST em toda a região no dia 22 de outubro de 2020.</p>
 <div id="cell-fig-ajuste-variogramas" class="cell">
 <div class="cell-output-display">
-<div id="fig-ajuste-variogramas" class="quarto-figure quarto-figure-center anchored" width="672">
+<div id="fig-ajuste-variogramas" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ajuste-variogramas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-ajuste-variogramas-1.png" class="lightbox" data-description="Figura&nbsp;3: Comparação de modelos de variograma ajustados aos dados de temperatura da superfície terrestre na RIDE-DF." data-gallery="quarto-lightbox-gallery-3"><img src="index_files/figure-html/fig-ajuste-variogramas-1.png" class="img-fluid figure-img" width="672"></a>
+<a href="index_files/figure-html/fig-ajuste-variogramas-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="index_files/figure-html/fig-ajuste-variogramas-1.png" class="img-fluid figure-img" width="672"></a>
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-ajuste-variogramas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ajuste-variogramas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;3: Comparação de modelos de variograma ajustados aos dados de temperatura da superfície terrestre na RIDE-DF.
 </figcaption>
 </figure>
@@ -243,12 +242,12 @@ Figura&nbsp;3: Comparação de modelos de variograma ajustados aos dados de temp
 <p>A <a href="#fig-grade-krigagem" class="quarto-xref">Figura&nbsp;4</a> apresenta os pontos da grade de predição (em vermelho) distribuídos de forma homogênea ao longo da RIDE, além dos pontos amostrados utilizados para o ajuste da krigagem. Estes pontos amostrados estão representados por marcadores pretos, acompanhados dos respectivos valores de temperatura da superfície terrestre (em graus Celsius).</p>
 <div id="cell-fig-grade-krigagem" class="cell">
 <div class="cell-output-display">
-<div id="fig-grade-krigagem" class="quarto-figure quarto-figure-center anchored" width="672">
+<div id="fig-grade-krigagem" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-grade-krigagem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-grade-krigagem-1.png" class="lightbox" data-description="Figura&nbsp;4: Grid predição (2,5 km) e pontos com temperatura observada." data-gallery="quarto-lightbox-gallery-4"><img src="index_files/figure-html/fig-grade-krigagem-1.png" class="img-fluid figure-img" width="672"></a>
+<a href="ride_temp_grid.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4"><img src="ride_temp_grid.png" class="img-fluid figure-img" width="1200"></a>
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-grade-krigagem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-grade-krigagem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;4: Grid predição (2,5 km) e pontos com temperatura observada.
 </figcaption>
 </figure>
@@ -266,12 +265,12 @@ Figura&nbsp;4: Grid predição (2,5 km) e pontos com temperatura observada.
 <p>Essa ausência de distinção visual pode ser explicada por características da própria área de estudo: a RIDE-DF está localizada em uma região de relevo relativamente plano e contínuo, com uma distribuição espacial de temperatura que, ao menos na data considerada, não apresenta gradientes acentuados ou tendências marcantes ao longo das coordenadas geográficas. Em contextos assim, a contribuição de uma estrutura de tendência global tende a ser pequena, fazendo com que a krigagem universal e a ordinária produzam resultados semelhantes.</p>
 <div id="cell-fig-krigagem-comparacao" class="cell">
 <div class="cell-output-display">
-<div id="fig-krigagem-comparacao" class="quarto-figure quarto-figure-center anchored" width="672">
+<div id="fig-krigagem-comparacao" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-krigagem-comparacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-krigagem-comparacao-1.png" class="lightbox" data-description="Figura&nbsp;5: Superfícies de temperatura estimadas por krigagem ordinária (à esquerda) e universal (à direita) na RIDE-DF. Ambas apresentam padrões espaciais semelhantes, refletindo a distribuição dos dados observados." data-gallery="quarto-lightbox-gallery-5"><img src="index_files/figure-html/fig-krigagem-comparacao-1.png" class="img-fluid figure-img" width="672"></a>
+<a href="index_files/figure-html/fig-krigagem-comparacao-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5"><img src="index_files/figure-html/fig-krigagem-comparacao-1.png" class="img-fluid figure-img" width="672"></a>
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-krigagem-comparacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-krigagem-comparacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;5: Superfícies de temperatura estimadas por krigagem ordinária (à esquerda) e universal (à direita) na RIDE-DF. Ambas apresentam padrões espaciais semelhantes, refletindo a distribuição dos dados observados.
 </figcaption>
 </figure>
@@ -283,12 +282,12 @@ Figura&nbsp;5: Superfícies de temperatura estimadas por krigagem ordinária (à
 <p>Esse comportamento é característico do método geoestatístico adotado, uma vez que a precisão da predição decai com o aumento da distância em relação aos pontos observados. Além disso, nota-se que tanto a krigagem ordinária quanto a universal apresentaram padrões similares de erro padrão, reforçando a conclusão de que a inclusão da tendência espacial não resultou em ganhos substantivos de acurácia no presente contexto.</p>
 <div id="cell-fig-superficie-erro-padrao" class="cell">
 <div class="cell-output-display">
-<div id="fig-superficie-erro-padrao" class="quarto-figure quarto-figure-center anchored" width="672">
+<div id="fig-superficie-erro-padrao" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-superficie-erro-padrao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-superficie-erro-padrao-1.png" class="lightbox" data-description="Figura&nbsp;6: Superfície do erro padrão das predições por krigagem ordinária (à esquerda) e universal (à direita) na RIDE-DF. Valores mais baixos próximos aos pontos amostrados indicam maior confiança na interpolação nessas áreas." data-gallery="quarto-lightbox-gallery-6"><img src="index_files/figure-html/fig-superficie-erro-padrao-1.png" class="img-fluid figure-img" width="672"></a>
+<a href="index_files/figure-html/fig-superficie-erro-padrao-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6"><img src="index_files/figure-html/fig-superficie-erro-padrao-1.png" class="img-fluid figure-img" width="672"></a>
 </div>
-<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-superficie-erro-padrao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-superficie-erro-padrao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;6: Superfície do erro padrão das predições por krigagem ordinária (à esquerda) e universal (à direita) na RIDE-DF. Valores mais baixos próximos aos pontos amostrados indicam maior confiança na interpolação nessas áreas.
 </figcaption>
 </figure>
@@ -313,13 +312,20 @@ NASA Earthdata. 2024. <span>«Earthdata Search»</span>. <a href="https://search
 Wan, Zhengming, e Jeff Dozier. 2002. <span>«MODIS land surface temperature products»</span>. <em>Remote Sensing of Environment</em> 83 (1-2): 163–80.
 </div>
 </div>
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Figura&nbsp;1: Municípios que compõem a RIDE (Região Integrada de Desenvolvimento do DF e Entorno).</span>
+<span class="glightbox-desc lightbox-desc-2">Figura&nbsp;2: Pontos amostrados de temperatura da superfície terrestre (°C) na RIDE-DF.</span>
+<span class="glightbox-desc lightbox-desc-3">Figura&nbsp;3: Comparação de modelos de variograma ajustados aos dados de temperatura da superfície terrestre na RIDE-DF.</span>
+<span class="glightbox-desc lightbox-desc-4">Figura&nbsp;4: Grid predição (2,5 km) e pontos com temperatura observada.</span>
+<span class="glightbox-desc lightbox-desc-5">Figura&nbsp;5: Superfícies de temperatura estimadas por krigagem ordinária (à esquerda) e universal (à direita) na RIDE-DF. Ambas apresentam padrões espaciais semelhantes, refletindo a distribuição dos dados observados.</span>
+<span class="glightbox-desc lightbox-desc-6">Figura&nbsp;6: Superfície do erro padrão das predições por krigagem ordinária (à esquerda) e universal (à direita) na RIDE-DF. Valores mais baixos próximos aos pontos amostrados indicam maior confiança na interpolação nessas áreas.</span>
+</div>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citação</h2><div><div class="quarto-appendix-secondary-label">BibTeX</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{musso2025,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citação</h2><div><div class="quarto-appendix-secondary-label">BibTeX</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{musso2025,
   author = {Musso, Carolina},
   title = {Temperetura atmosférica na Região Integrada de
     Desenvolvimento do Distrito Federal e Entorno},
-  pages = {undefined},
   date = {2025-07-17},
   langid = {pt},
   abstract = {Em 22 de outubro de 2020, data pessoalmente significativa
@@ -472,38 +478,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -512,8 +508,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -735,7 +738,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","openEffect":"zoom","loop":false});</script>
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":false});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

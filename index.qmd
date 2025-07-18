@@ -328,9 +328,11 @@ fv <- fit.variogram(vc, model = vinitial)
 ride_utm <- st_transform(ride_sf, 31983)
 
 # 🔳 Criar grade regular de pontos dentro da RIDE
-grid <- st_make_grid(ride_utm, cellsize = 1000, what = "centers")
+# Criar grade com espaçamento maior (ex: 5 km)
+grid <- st_make_grid(ride_utm, cellsize = 5000, what = "centers")
 grid_sf <- st_sf(geometry = grid, crs = st_crs(ride_utm))
 grid_sf <- grid_sf[ride_utm, ]
+
 
 # 🤖 Krigagem
 k <- gstat(formula = temp ~ 1, data = dados_utm_sf_amostra, model = fv)
@@ -348,12 +350,11 @@ Para a aplicação da krigagem, foi construída uma grade regular de predição 
 A @fig-grade-krigagem apresenta os pontos da grade de predição (em vermelho) distribuídos de forma homogênea ao longo da RIDE, além dos pontos amostrados utilizados para o ajuste da krigagem. Estes pontos amostrados estão representados por marcadores pretos, acompanhados dos respectivos valores de temperatura da superfície terrestre (em graus Celsius).
 
 ```{r}
-#| label: fig-grade-krigagem
-#| fig-cap: "Grid predição (2,5 km) e pontos\n com temperatura observada."
+
 dados_lab <- dados_utm_sf_amostra %>%
   mutate(temp_label = sprintf("%.1f", temp))
 # Gráfico
-ggplot() +
+g3 <- ggplot() +
   geom_sf(data = ride_utm, fill = NA, color = "black") +  # contorno da RIDE
   geom_sf(data = grid_sf, color = "darkred", size = 0.1, alpha = 0.6) +  # pontos do grid
   geom_sf(data = dados_lab, size = 1.2, shape = 21, fill = "black") +  # pontos amostrados pretos
@@ -364,10 +365,15 @@ ggplot() +
     subtitle = "Espaçamento de 5 km",
     caption = "Fonte: Earthdata, NASA"
   )
-
+ggsave("ride_temp_grid.png", g3, width = 8, height = 6, dpi = 300)
 
 ```
 
+```{r}
+#| label: fig-grade-krigagem
+#| fig-cap: "Grid predição (2,5 km) e pontos\n com temperatura observada."
+knitr::include_graphics("ride_temp_grid.png")
+```
 
 
 
