@@ -11,7 +11,7 @@ author:
     affiliations:
       - Universidade de Brasília
 abstract: |
-  Em 22 de outubro de 2020 — data pessoalmente significativa para a autora — foram extraídos dados de temperatura da superfície terrestre (LST) para a Região Integrada de Desenvolvimento do Distrito Federal e Entorno (RIDE-DF), com base em imagens do satélite MODIS. Os dados foram filtrados para incluir apenas os municípios pertencentes à RIDE. Em seguida, avaliou-se o ajuste de diferentes modelos de variogramas aos dados, optando-se por um modelo Exponencial.  Então, aplicou-se a krigagem ordinária para interpolar uma superfície contínua de temperatura e comparou-se com a krigagem universal, que foram considerados equivalentes. A superfície resultante oferece uma visão da estrutura espacial da variação de temperatura na região durante um dia especialmente quente (para mim) e memorável de 2020. e não apenas uma mera curiosidade geográfica, mas também um exercício de aplicação de técnicas geoestatísticas em um contexto pessoal e afetivo.
+  Em 22 de outubro de 2020, data pessoalmente significativa para a autora, foram extraídos dados de temperatura da superfície terrestre (LST) para a Região Integrada de Desenvolvimento do Distrito Federal e Entorno (RIDE-DF), com base em imagens do satélite MODIS. Os dados foram filtrados para incluir apenas os municípios pertencentes à RIDE. Em seguida, avaliou-se o ajuste de diferentes modelos de variogramas aos dados, optando-se por um modelo Exponencial.  Então, aplicou-se a krigagem ordinária para interpolar uma superfície contínua de temperatura e comparou-se com a krigagem universal, que foram considerados equivalentes. A superfície resultante oferece uma visão da estrutura espacial da variação de temperatura na região durante um dia especialmente quente (para mim) e memorável de 2020. e não apenas uma mera curiosidade geográfica, mas também um exercício de aplicação de técnicas geoestatísticas em um contexto pessoal e afetivo.
 
 plain-language-summary: |
   Utilizando dados de satélite do dia 22 de outubro de 2020, este estudo estimou uma superfície contínua de temperatura para a região da RIDE-DF, no Brasil. Técnicas de interpolação espacial (krigagem) foram aplicadas para mapear como a temperatura variava ao longo do território em um dia quente de primavera, no primeiro ano da pandemia de COVID-19.
@@ -40,17 +40,17 @@ number-sections: true
 
 ## Introdução
 
-Há quem não goste de comemorar aniversários. Não é o meu caso. Gosto tanto que, quando um aniversário termina, já começo a planejar o do ano seguinte. Por isso, lembro com nitidez do ano em que a comemoração não aconteceu: 2020, o primeiro ano da pandemia de COVID-19. Claro, entre as muitas consequências daquele ano difícil, a ausência de uma festa de aniversário pessoal está longe de ser a mais relevante — mas não deixa de ser memorável, ao menos para mim.
+Há quem não goste de comemorar aniversários. Não é o meu caso. Gosto tanto que, quando um aniversário termina, já começo a planejar o do ano seguinte. Por isso, lembro com nitidez do ano em que a comemoração não aconteceu: 2020, o primeiro ano da pandemia de COVID-19. Claro, entre as muitas consequências daquele ano difícil, a ausência de uma festa de aniversário pessoal está longe de ser a mais relevante, mas não deixa de ser memorável, ao menos para mim.
 
 Além da ausência de bolo e parabéns, 2020 foi, curiosamente, um dos anos em que mais trabalhei. Estive envolvida com a Secretaria de Saúde, com o Ministério da Saúde e com a Faculdade de Ciências da Saúde da UnB. Em meio a plantões, pesquisas, boletins epidemiológicos e videochamadas sem fim, conheci algo que nunca tinha ouvido falar antes: a RIDE.
 
-A RIDE (Região Integrada de Desenvolvimento do Distrito Federal e Entorno,  @fig-mapa-ride) é uma unidade regional composta pelo Distrito Federal e diversos municípios limítrofes dos estados de Goiás e Minas Gerais. Seu objetivo é promover o planejamento e a execução integrada de políticas públicas — especialmente em áreas como transporte, saúde, educação e infraestrutura — de modo a articular o desenvolvimento socioeconômico da capital federal com o de seu entorno imediato. O DF, por sua posição central e por concentrar muitos serviços públicos, presta serviços à região em múltiplas frentes, como saúde, empregos e educação.
+A RIDE (Região Integrada de Desenvolvimento do Distrito Federal e Entorno,  @fig-mapa-ride) é uma unidade regional composta pelo Distrito Federal e diversos municípios limítrofes dos estados de Goiás e Minas Gerais. Seu objetivo é promover o planejamento e a execução integrada de políticas públicas, especialmente em áreas como transporte, saúde, educação e infraestrutura, de modo a articular o desenvolvimento socioeconômico da capital federal com o de seu entorno imediato. O DF, por sua posição central e por concentrar muitos serviços públicos, presta serviços à região em múltiplas frentes, como saúde, empregos e educação.
 
 A ausência de uma festa e o calor escaldante de um apartamento sem ar-condicionado, com as janelas vedadas por conta de uma reforma de fachada, deixaram uma impressão permanente na memória. Assim, RIDE, aniversário e temperatura se entrelaçam para compor este trabalho.
 
-O objetivo deste relatório é aplicar técnicas de geoestatística, em especial a krigagem, para estimar a superfície de temperatura do dia 22 de outubro de 2020, data do meu aniversário, em toda a extensão da RIDE. A krigagem é um método de interpolação espacial que utiliza modelos variográficos para estimar valores em locais não amostrados, levando em consideração a autocorrelação espacial dos dados. Trata-se, portanto, de uma ferramenta poderosa para reconstruir superfícies contínuas a partir de dados pontuais — como é o caso das observações de temperatura registradas por sensores ou satélites.
+O objetivo deste relatório é aplicar técnicas de geoestatística, em especial a krigagem, para estimar a superfície de temperatura do dia 22 de outubro de 2020, data do meu aniversário, em toda a extensão da RIDE. A krigagem é um método de interpolação espacial que utiliza modelos variográficos para estimar valores em locais não amostrados, levando em consideração a autocorrelação espacial dos dados. Trata-se, portanto, de uma ferramenta poderosa para reconstruir superfícies contínuas a partir de dados pontuais, como é o caso das observações de temperatura registradas por sensores ou satélites.
 
-Mais do que um pretexto pessoal, este trabalho busca ilustrar o potencial da geoestatística na compreensão de padrões espaciais de variáveis ambientais — mesmo (ou especialmente) em datas de valor afetivo.
+Mais do que um pretexto pessoal, este trabalho busca ilustrar o potencial da geoestatística na compreensão de padrões espaciais de variáveis ambientais, mesmo (ou especialmente) em datas de valor afetivo.
 
 ```{r}
 rm(list=ls())
@@ -74,38 +74,44 @@ pacman::p_load(
 ```
 
 ```{r}
-#| label: fig-mapa-ride
-#| fig-cap: "Municípios que compõem a RIDE (Região Integrada de Desenvolvimento do DF e Entorno)."
-#| echo: false
-#| message: false
-#| warning: false
+
 ## ler os shapefiles com pacote sp
 ride_sf <- sf::read_sf("RIDE/.")
 ride_sf_centroids <- st_centroid(ride_sf)
 coords <- st_coordinates(ride_sf_centroids)
 ride_sf_labels <- cbind(ride_sf, coords)
 ride_sf_labels$NM_MUNICIP <- str_wrap(ride_sf_labels$NM_MUNIC, width = 12)
-ride_sf |> ggplot()+
+g1<-ride_sf |> ggplot()+
   geom_sf() +
   scale_fill_viridis_c() +
   geom_text_repel(
     data = ride_sf_labels,
     aes(x = X, y = Y, label = NM_MUNICIP),
-    size = 1.5,
+    size = 2.5,
     color = "black",
   point.padding = 0.1,     # Reduz a distância do texto ao ponto central
   force = 1# Remove as linhas se quiser deixar só o tilt
   ) +
-  theme_minimal(base_size=12) +
+  theme_minimal(base_size=14) +
   labs(
     title = "RIDE",
-    subtitle = "Região Integrada de Desenvolvimento do\n Distrito Federal e Entorno",
     caption = "Fonte: IPEDF"
   ) +
 
   theme(legend.position = "bottom") +
-  annotation_scale(location = "br", width_hint = 0.5) +
-  annotation_north_arrow(location = "tl", style = north_arrow_fancy_orienteering)
+  annotation_scale(location = "br", width_hint = 0.5) 
+ggsave("ride.png", g1, width = 8, height = 6, dpi = 300)
+```
+
+```{r}
+#| label: fig-mapa-ride
+#| fig-cap: "Municípios que compõem a RIDE (Região Integrada de Desenvolvimento do DF e Entorno)."
+#| fig-align: center
+#| echo: false
+#| message: false
+#| warning: false
+
+knitr::include_graphics("ride.png")
 ```
 
 ```{r}
@@ -225,7 +231,7 @@ dados_utm_sf_amostra <- dados_utm_sf %>%
 No total, foram utilizados 181 medições . As coordenadas dos pontos de temperatura foram obtidas tanto em formato geográfico (latitude e longitude) quanto em sistema projetado UTM (Universal Transverse Mercator, zona 23S, SIRGAS 2000), sendo este último utilizado nas análises geoestatísticas por ser mais adequado ao cálculo de distâncias em metros. 
 
 ```{r}
-ggplot() +
+g2 <- ggplot() +
   geom_sf(data = ride_sf, fill = NA, color = "black", linewidth = 0.1) +  # polígono em preto
   geom_sf(data = dados_utm_sf_amostra, aes(color = temp), size = 2) +  # pontos coloridos
   #acrescentar rotulos com nome dos municipios
@@ -236,14 +242,21 @@ ggplot() +
     title = "Pontos de medição\n Temperatura na RIDE-DF",
     caption = "Fonte: Earthdata, NASA"
   )
+ggsave("ride_temp_points.png", g2, width = 8, height = 6, dpi = 300)
+```
 
+```{r}
+#| label: fig-pontos-amostrados
+#| fig-cap: "Pontos amostrados de temperatura da superfície terrestre (°C) na RIDE-DF."
+
+knitr::include_graphics("ride_temp_points.png")
 ```
 
 Com os dados preparados, procedeu-se à aplicação da krigagem ordinária, técnica de interpolação espacial baseada na teoria dos processos estocásticos estacionários, que utiliza a estrutura de autocorrelação espacial da variável observada para gerar estimativas em pontos não amostrados.
 
 ## Resultados
 
-A fim de estimar a temperatura da superfície terrestre em locais não amostrados dentro da RIDE-DF, foi realizada a modelagem do variograma empírico com base na amostra dos 181 pontos. Para isso, foram testados diferentes modelos teóricos de variograma — esférico, gaussiano, exponencial e linear — com diferentes valores de sill, range e nugget  com o objetivo de avaliar qual estrutura de dependência espacial melhor se ajustava aos dados.
+A fim de estimar a temperatura da superfície terrestre em locais não amostrados dentro da RIDE-DF, foi realizada a modelagem do variograma empírico com base na amostra dos 181 pontos. Para isso, foram testados diferentes modelos teóricos de variograma, esférico, gaussiano, exponencial e linear, com diferentes valores de sill, range e nugget  com o objetivo de avaliar qual estrutura de dependência espacial melhor se ajustava aos dados.
 
 A comparação visual dos ajustes ( @fig-ajuste-variogramas) mostrou que os modelos esférico  e exponencial foram capazes de capturar razoavelmente bem a tendência observada no variograma empírico. O modelo gaussiano não se ajustou bem quando os dados atingiam o range e o modelo linear apresentou instabilidades no processo de ajuste, com alerta de singularidade, e foi descartado da análise final.  O gráfico resultante mostra a semivariância média dos pares de pontos em função da distância que os separa, evidenciando o grau de dependência espacial da variável.
 
@@ -292,7 +305,7 @@ g4 <- ggplot() +
 ```
 
 ```{r}
-#| label: fig-varios
+#| label: fig-ajuste-variogramas
 #| fig-cap: "Comparação de modelos de variograma ajustados aos dados de temperatura da superfície terrestre na RIDE-DF."
 # 4. Patchwork: 2x2
 (g1 | g2) / (g3 | g4)
@@ -302,9 +315,9 @@ g4 <- ggplot() +
 
 Na sequência, foi ajustado um modelo teórico exponencial, com parâmetros iniciais definidos para o patamar (sill), efeito pepita (nugget) e alcance (range). O ajuste obteve convergência e mostrou boa aderência visual ao variograma empírico, respeitando a tendência de crescimento rápido da semivariância para pequenas distâncias, característica compatível com esse tipo de modelo.
 
-O modelo ajustado estimou um nugget de aproximadamente 3, indicando uma parcela de variabilidade que não é explicada pela estrutura espacial — possivelmente atribuída a erros de medição, microvariações locais ou ruído do processo. O sill (patamar da variância total) foi estimado em torno de 15, valor que representa o nível de estabilização da semivariância para distâncias maiores. Já o range foi estimado em cerca de 150 km, sugerindo que pontos distantes até essa ordem de magnitude ainda apresentam correlação espacial significativa.
+O modelo ajustado estimou um nugget de aproximadamente 3, indicando uma parcela de variabilidade que não é explicada pela estrutura espacial, possivelmente atribuída a erros de medição, microvariações locais ou ruído do processo. O sill (patamar da variância total) foi estimado em torno de 15, valor que representa o nível de estabilização da semivariância para distâncias maiores. Já o range foi estimado em cerca de 150 km, sugerindo que pontos distantes até essa ordem de magnitude ainda apresentam correlação espacial significativa.
 
-Esses valores são consistentes com um cenário em que a temperatura de superfície apresenta autocorrelação espacial de média escala, com variação gradual ao longo do território da RIDE — o que justifica o uso da krigagem como interpolador.
+Esses valores são consistentes com um cenário em que a temperatura de superfície apresenta autocorrelação espacial de média escala, com variação gradual ao longo do território da RIDE, o que justifica o uso da krigagem como interpolador.
 
 
 ```{r}
@@ -332,11 +345,11 @@ kpred_latlon <- st_transform(kpred_sf, 4326)
 
 Para a aplicação da krigagem, foi construída uma grade regular de predição sobre a área da RIDE, com espaçamento de 2.500 metros entre os pontos centrais. Esse valor foi escolhido com o objetivo de manter boa resolução espacial ao mesmo tempo em que se preserva a legibilidade visual da trama da grade. Os pontos da grade foram filtrados para incluir apenas aqueles contidos dentro dos limites geográficos da região de estudo.
 
-A Figura @fig-grade-krigagem apresenta os pontos da grade de predição (em vermelho) distribuídos de forma homogênea ao longo da RIDE, além dos pontos amostrados utilizados para o ajuste da krigagem. Estes pontos amostrados estão representados por marcadores pretos, acompanhados dos respectivos valores de temperatura da superfície terrestre (em graus Celsius).
+A @fig-grade-krigagem apresenta os pontos da grade de predição (em vermelho) distribuídos de forma homogênea ao longo da RIDE, além dos pontos amostrados utilizados para o ajuste da krigagem. Estes pontos amostrados estão representados por marcadores pretos, acompanhados dos respectivos valores de temperatura da superfície terrestre (em graus Celsius).
 
 ```{r}
 #| label: fig-grade-krigagem
-#| fig-cap: "Grade regular de predição (2,5 km) e pontos amostrados com temperatura observada (°C) na RIDE-DF."
+#| fig-cap: "Grid predição (2,5 km) e pontos\n com temperatura observada."
 dados_lab <- dados_utm_sf_amostra %>%
   mutate(temp_label = sprintf("%.1f", temp))
 # Gráfico
@@ -347,9 +360,9 @@ ggplot() +
   geom_sf_text(data = dados_lab, aes(label = temp_label), size = 2, nudge_y = 10000) +  # temperatura como texto
   theme_minimal(base_size=12) +
   labs(
-    title = "Grade de krigagem e pontos amostrados com temperatura (°C)",
-    subtitle = "Grade com espaçamento de 5 km",
-    caption = "Fonte: MODIS LST - NASA Earthdata"
+    title = "Grid de krigagem ",
+    subtitle = "Espaçamento de 5 km",
+    caption = "Fonte: Earthdata, NASA"
   )
 
 
@@ -391,7 +404,8 @@ Apesar da incorporação dessa estrutura adicional no modelo, a comparação vis
 Essa ausência de distinção visual pode ser explicada por características da própria área de estudo: a RIDE-DF está localizada em uma região de relevo relativamente plano e contínuo, com uma distribuição espacial de temperatura que, ao menos na data considerada, não apresenta gradientes acentuados ou tendências marcantes ao longo das coordenadas geográficas. Em contextos assim, a contribuição de uma estrutura de tendência global tende a ser pequena, fazendo com que a krigagem universal e a ordinária produzam resultados semelhantes.
 
 ```{r}
-
+#| label: fig-krigagem-comparacao
+#| fig-cap: "Superfícies de temperatura estimadas por krigagem ordinária (à esquerda) e universal (à direita) na RIDE-DF. Ambas apresentam padrões espaciais semelhantes, refletindo a distribuição dos dados observados."
 # Gráfico da krigagem ordinária
 p_ordinaria <- ggplot() +
   geom_sf(data = kpred_latlon, aes(color = var1.pred), size = 0.6) +
@@ -428,7 +442,7 @@ erros_comb <- rbind(kpred_latlon, kpred_uni_latlon)
 
 ```
 
-Avaliando a superfície do erro padrão das predições por krigagem (Figura @fig-superficie-erro-padrao), observa-se que os menores valores de incerteza concentram-se nas regiões próximas aos pontos de amostragem, como era esperado. Nessas áreas, a densidade de informação observada permite ao modelo realizar predições mais confiáveis, reduzindo a variância associada. Por outro lado, nas porções mais periféricas da RIDE — especialmente em trechos do norte, nordeste e extremo oeste —, os valores do erro padrão se elevam, refletindo a maior distância em relação aos dados utilizados no ajuste da krigagem.
+Avaliando a superfície do erro padrão das predições por krigagem (@fig-superficie-erro-padrao), observa-se que os menores valores de incerteza concentram-se nas regiões próximas aos pontos de amostragem, como era esperado. Nessas áreas, a densidade de informação observada permite ao modelo realizar predições mais confiáveis, reduzindo a variância associada. Por outro lado, nas porções mais periféricas da RIDE, especialmente em trechos do norte, nordeste e extremo oeste —, os valores do erro padrão se elevam, refletindo a maior distância em relação aos dados utilizados no ajuste da krigagem.
 
 Esse comportamento é característico do método geoestatístico adotado, uma vez que a precisão da predição decai com o aumento da distância em relação aos pontos observados. Além disso, nota-se que tanto a krigagem ordinária quanto a universal apresentaram padrões similares de erro padrão, reforçando a conclusão de que a inclusão da tendência espacial não resultou em ganhos substantivos de acurácia no presente contexto.
 
@@ -468,13 +482,13 @@ g1 + g2 + plot_layout(guides = "collect") & theme(legend.position = "bottom")
 ```
 ## Conclusões
 
-A superfície de temperatura estimada pela krigagem  revela padrões espaciais coerentes com as características geográficas e ambientais da Região Integrada de Desenvolvimento do Distrito Federal e Entorno (RIDE-DF). Observa-se uma tendência de temperaturas mais elevadas nas porções norte e oeste da região, especialmente em municípios como Cavalcante, Alto Paraíso de Goiás, Niquelândia e Barro Alto. Essas localidades são marcadas por altitudes relativamente mais baixas, presença predominante de áreas abertas, pastagens e agricultura extensiva, e menor cobertura florestal — fatores que favorecem maior absorção de radiação solar e aquecimento da superfície terrestre (Moraga, 2022). E eu também por acaso já notei que Cavalcante costuma ser bem mais quente que Brasília quando vou la acambar no Parque Nacional da Chapada dos Veadeiros.
+A superfície de temperatura estimada pela krigagem  revela padrões espaciais coerentes com as características geográficas e ambientais da Região Integrada de Desenvolvimento do Distrito Federal e Entorno (RIDE-DF). Observa-se uma tendência de temperaturas mais elevadas nas porções norte e oeste da região, especialmente em municípios como Cavalcante, Alto Paraíso de Goiás, Niquelândia e Barro Alto. Essas localidades são marcadas por altitudes relativamente mais baixas, presença predominante de áreas abertas, pastagens e agricultura extensiva, e menor cobertura florestal, fatores que favorecem maior absorção de radiação solar e aquecimento da superfície terrestre (Moraga, 2022). E eu também por acaso já notei que Cavalcante costuma ser bem mais quente que Brasília quando vou la acambar no Parque Nacional da Chapada dos Veadeiros.
 
-Em contraste, as temperaturas mais amenas concentram-se na porção sul da RIDE, em municípios como Cristalina, Luziânia, Cidade Ocidental e Novo Gama, além do centro-leste da região, abrangendo o Distrito Federal. Essa distribuição se alinha à topografia mais elevada do Planalto Central, onde altitudes frequentemente superam os 1.000 metros, contribuindo para uma moderação térmica natural. A maior presença de manchas urbanas contínuas com arborização significativa, aliada a áreas de proteção ambiental como o Parque Nacional de Brasília, também pode resultar em temperaturas de superfície mais baixas — configurando, em alguns trechos, o fenômeno conhecido como “ilha de frescor urbano”
+Em contraste, as temperaturas mais amenas concentram-se na porção sul da RIDE, em municípios como Cristalina, Luziânia, Cidade Ocidental e Novo Gama, além do centro-leste da região, abrangendo o Distrito Federal. Essa distribuição se alinha à topografia mais elevada do Planalto Central, onde altitudes frequentemente superam os 1.000 metros, contribuindo para uma moderação térmica natural. A maior presença de manchas urbanas contínuas com arborização significativa, aliada a áreas de proteção ambiental como o Parque Nacional de Brasília, também pode resultar em temperaturas de superfície mais baixas, configurando, em alguns trechos, o fenômeno conhecido como “ilha de frescor urbano”
 
-Os dados utilizados referem-se à temperatura da superfície terrestre (Land Surface Temperature – LST) captada via sensoriamento remoto no período diurno (~10h30), sendo sensíveis à cobertura e ao uso do solo, à umidade superficial e ao relevo. Como a data de referência é 22 de outubro de 2020, dia do aniversário da autora — e também um dos mais quentes daquele ano na região —, a escolha do recorte temporal não foi apenas afetiva, mas também climática. Trata-se de um momento de transição entre a estação seca e o início da estação chuvosa no Centro-Oeste, período marcado por altos índices de radiação solar e baixa umidade do solo.
+Os dados utilizados referem-se à temperatura da superfície terrestre (Land Surface Temperature – LST) captada via sensoriamento remoto no período diurno (~10h30), sendo sensíveis à cobertura e ao uso do solo, à umidade superficial e ao relevo. Como a data de referência é 22 de outubro de 2020, dia do aniversário da autora, e também um dos mais quentes daquele ano na região —, a escolha do recorte temporal não foi apenas afetiva, mas também climática. Trata-se de um momento de transição entre a estação seca e o início da estação chuvosa no Centro-Oeste, período marcado por altos índices de radiação solar e baixa umidade do solo.
 
-Curiosamente, embora a memória térmica da autora guarde a Asa Norte como um forno reformando sem ar-condicionado, os dados mostram que havia regiões significativamente mais quentes na RIDE naquele dia. Assim, o sofrimento era real — mas não estava sozinho: a superfície do Planalto queimava de forma coletiva
+Curiosamente, embora a memória térmica da autora guarde a Asa Norte como um forno reformando sem ar-condicionado, os dados mostram que havia regiões significativamente mais quentes na RIDE naquele dia. Assim, o sofrimento era real, mas não estava sozinho: a superfície do Planalto queimava de forma coletiva
 
 ## Referências {.unnumbered}
 
