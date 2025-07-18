@@ -329,7 +329,7 @@ ride_utm <- st_transform(ride_sf, 31983)
 
 # 🔳 Criar grade regular de pontos dentro da RIDE
 # Criar grade com espaçamento maior (ex: 5 km)
-grid <- st_make_grid(ride_utm, cellsize = 5000, what = "centers")
+grid <- st_make_grid(ride_utm, cellsize = 2500, what = "centers")
 grid_sf <- st_sf(geometry = grid, crs = st_crs(ride_utm))
 grid_sf <- grid_sf[ride_utm, ]
 

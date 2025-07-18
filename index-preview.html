@@ -192,10 +192,10 @@
 ">
 <meta name="citation_keywords" content="Krigging,Temperatura,RIDE">
 <meta name="citation_author" content="Carolina Musso">
-<meta name="citation_publication_date" content="2025-07-17">
-<meta name="citation_cover_date" content="2025-07-17">
+<meta name="citation_publication_date" content="2025-07-18">
+<meta name="citation_cover_date" content="2025-07-18">
 <meta name="citation_year" content="2025">
-<meta name="citation_online_date" content="2025-07-17">
+<meta name="citation_online_date" content="2025-07-18">
 <meta name="citation_language" content="pt">
 <meta name="citation_journal_title" content="Earth and Space Science">
 <meta name="citation_reference" content="citation_title=Earthdata search;,citation_author=NASA Earthdata;,citation_publication_date=2024;,citation_cover_date=2024;,citation_year=2024;,citation_fulltext_html_url=https://search.earthdata.nasa.gov;">
@@ -243,7 +243,7 @@
                 <div>
             <div class="quarto-title-meta-heading">Data de Publicação</div>
             <div class="quarto-title-meta-contents">
-              <p class="date">17 de julho de 2025</p>
+              <p class="date">18 de julho de 2025</p>
             </div>
           </div>
           
@@ -583,7 +583,7 @@ Figura&nbsp;3: Comparação de modelos de variograma ajustados aos dados de temp
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 🔳 Criar grade regular de pontos dentro da RIDE</span></span>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Criar grade com espaçamento maior (ex: 5 km)</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">st_make_grid</span>(ride_utm, <span class="at">cellsize =</span> <span class="dv">5000</span>, <span class="at">what =</span> <span class="st">"centers"</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">st_make_grid</span>(ride_utm, <span class="at">cellsize =</span> <span class="dv">2500</span>, <span class="at">what =</span> <span class="st">"centers"</span>)</span>
 <span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>grid_sf <span class="ot">&lt;-</span> <span class="fu">st_sf</span>(<span class="at">geometry =</span> grid, <span class="at">crs =</span> <span class="fu">st_crs</span>(ride_utm))</span>
 <span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>grid_sf <span class="ot">&lt;-</span> grid_sf[ride_utm, ]</span>
 <span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
@@ -1164,7 +1164,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom"});
+</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
