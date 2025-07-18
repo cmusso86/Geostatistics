@@ -30,8 +30,7 @@ execute:
   echo: false
   warning: false
   message: false
-
-
+notebook-links: false
 date: last-modified
 bibliography: references.bib
 citation:
@@ -97,7 +96,7 @@ ride_sf |> ggplot()+
   point.padding = 0.1,     # Reduz a distância do texto ao ponto central
   force = 1# Remove as linhas se quiser deixar só o tilt
   ) +
-  theme_minimal() +
+  theme_minimal(base_size=12) +
   labs(
     title = "RIDE",
     subtitle = "Região Integrada de Desenvolvimento do\n Distrito Federal e Entorno",
@@ -232,7 +231,7 @@ ggplot() +
   #acrescentar rotulos com nome dos municipios
   
   scale_color_viridis_c(name = "Temperatura (°C)") +
-  theme_minimal() +
+  theme_minimal(base_size=12) +
   labs(
     title = "Pontos de medição\n Temperatura na RIDE-DF",
     caption = "Fonte: Earthdata, NASA"
@@ -346,7 +345,7 @@ ggplot() +
   geom_sf(data = grid_sf, color = "darkred", size = 0.1, alpha = 0.6) +  # pontos do grid
   geom_sf(data = dados_lab, size = 1.2, shape = 21, fill = "black") +  # pontos amostrados pretos
   geom_sf_text(data = dados_lab, aes(label = temp_label), size = 2, nudge_y = 10000) +  # temperatura como texto
-  theme_minimal() +
+  theme_minimal(base_size=12) +
   labs(
     title = "Grade de krigagem e pontos amostrados com temperatura (°C)",
     subtitle = "Grade com espaçamento de 5 km",
@@ -398,7 +397,7 @@ p_ordinaria <- ggplot() +
   geom_sf(data = kpred_latlon, aes(color = var1.pred), size = 0.6) +
   geom_sf(data = ride_latlon, fill = NA, color = "black", linewidth = 0.1) +
   scale_color_viridis_c(name = "Temperatura (°C)", option = "magma") +
-  theme_minimal() +
+  theme_minimal(base_size=12) +
   labs(title = "Krigagem Ordinária", subtitle = "Sem tendência espacial")
 
 # Gráfico da krigagem universal
@@ -406,7 +405,7 @@ p_universal <- ggplot() +
   geom_sf(data = st_transform(kpred_uni_sf, 4326), aes(color = var1.pred), size = 0.6) +
   geom_sf(data = ride_latlon, fill = NA, color = "black", linewidth = 0.1) +
   scale_color_viridis_c(name = "Temperatura (°C)", option = "magma") +
-  theme_minimal() +
+  theme_minimal(base_size=12) +
   labs(title = "Krigagem Universal", subtitle = "Com tendência espacial (x, y)")
 
 # Patchwork lado a lado
@@ -452,16 +451,16 @@ g1 <- ggplot() +
   geom_sf(data = kpred_latlon, aes(color = erro_padrao), size = 0.6) +
   geom_sf(data = ride_latlon, fill = NA, color = "black", linewidth = 0.1) +
   scale_color_viridis_c(name = "Erro padrão (°C)") +
-  theme_minimal() +
-  labs(title = "Erro padrão - Krigagem Ordinária")
+  theme_minimal(base_size=12) +
+  labs(title = "Erro padrão\n Krigagem Ordinária")
 
 # Erro padrão universal
 g2 <- ggplot() +
   geom_sf(data = kpred_uni_latlon, aes(color = erro_padrao), size = 0.6) +
   geom_sf(data = ride_latlon, fill = NA, color = "black", linewidth = 0.1) +
   scale_color_viridis_c(name = "Erro padrão (°C)") +
-  theme_minimal() +
-  labs(title = "Erro padrão - Krigagem Universal")
+  theme_minimal(base_size=12) +
+  labs(title = "Erro padrão\n Krigagem Universal")
 
 # Patchwork com legenda única
 g1 + g2 + plot_layout(guides = "collect") & theme(legend.position = "bottom")
